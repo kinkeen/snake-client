@@ -1,5 +1,7 @@
 //const { Server } = require('http');
 const net= require('net');
+const { IP, PORT } = require('./constants');
+
 /*
 establish connection with the game server
 */
@@ -14,29 +16,8 @@ const connect = function() {
     conn.on('connect', () => {
         console.log('Successfully connected to game server');
         conn.write("Name: SNK");
+        conn.write("Say: I'm going to win you :]");
     });
-
-    /*conn.on('connect', () => {
-        setTimeout(() => {
-            conn.write("Move: up"); 
-        },1000);
-    });
-    conn.on('connect', () => {
-        setTimeout(() => {
-            conn.write("Move: down"); 
-        },500);
-    });
-    /*conn.on('connect', () => {
-        setTimeout(() => {
-            conn.write("Move: left"); 
-        },1000);
-    });*/
-    /*conn.on('connect', () => {
-        setTimeout(() => {
-            conn.write("Move: right"); 
-        },1000);
-    });*/
-
     conn.on('close', () => {
         console.log('you dead');
     });
